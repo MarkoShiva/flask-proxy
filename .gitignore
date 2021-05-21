@@ -474,10 +474,8 @@ __pycache__/
 
 # OpenCover UI analysis results
 OpenCover/
-
 # Azure Stream Analytics local run output
 ASALocalRun/
-
 # MSBuild Binary and Structured Log
 *.binlog
 
@@ -486,10 +484,8 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder
 .mfractor/
-
 # Local History for Visual Studio
 .localhistory/
-
 # BeatPulse healthcheck temp database
 healthchecksdb
 
@@ -515,5 +511,6 @@ FodyWeavers.xsd
 pyvenv.cfg
 .venv
 pip-selfcheck.json
+
 
 /.idea/
