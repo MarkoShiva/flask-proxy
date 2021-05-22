@@ -1,9 +1,14 @@
 import re
 
 from bs4 import Tag, NavigableString, BeautifulSoup
-def replace_words(soup):
-    phrase = "WARP!"
-    exp = re.compile(r"\b\w{5}\b") # we are replacing any kind of word that is 5 char long. that include numbers.
+def replace_words(soup: BeautifulSoup, phrase: str = None, wl: int = 5, regex: re = None ):
+    if not phrase:
+        phrase = "WARP!"
+    if regex:
+        exp = regex
+    else:
+        regex = fr"\b\w{{{wl}}}\b"
+    exp = re.compile(regex) # we are replacing any kind of word that is 5 char long. that include numbers.
     if soup.find('body'):       # limit to body
         page = soup.body.find_all(text = exp) # find all text that matches word len.
         for line in page:

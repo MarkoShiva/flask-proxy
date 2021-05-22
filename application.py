@@ -43,7 +43,7 @@ def proxy(path):
             soup_append = BeautifulSoup('<link href="/static/css/load1.css" rel="stylesheet" type="text/css"/>',
                                         'html.parser')
             soup.head.append(soup_append)
-            updated = replace_words(soup)   # run word replacement
+            updated = replace_words(soup) #, phrase="Gi is fun. Gi is cute.")   # run word replacement
             resp._content = updated.encode('utf8')  # use setter and encode as bytestream
             response = Response(resp.content, resp.status_code, headers, mimetype='text/html')
             # specify response mimetype='text/html'
@@ -76,7 +76,7 @@ def proxy(path):
     elif request.method == 'DELETE':
         resp = requests.delete(f'{SITE_NAME}/{path}').content
         excluded_headers = ['content-encoding', 'content-length', 'transfer-encoding', 'connection']
-        print(resp.content)
+        # print(resp.content)
         headers = [(name, value) for (name, value) in resp.raw.headers.items() if name.lower() not in excluded_headers]
         response = Response(resp.content, resp.status_code, headers)
         return response
