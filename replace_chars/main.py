@@ -1,7 +1,21 @@
 import re
 
 from bs4 import Tag, NavigableString, BeautifulSoup
-def replace_words(soup: BeautifulSoup, phrase: str = None, wl: int = 5, regex: re = None ):
+
+
+def replace_words(soup: BeautifulSoup, phrase: str = None, wl: int = 5, regex: re = None) -> BeautifulSoup:
+    """
+
+    :param soup:
+    :param phrase:
+    :param wl:
+    :param regex:
+    :return BeautifulSoup:
+    """
+
+
+
+
     if not phrase:
         phrase = "WARP!"
     if regex:
@@ -29,4 +43,3 @@ def replace_words(soup: BeautifulSoup, phrase: str = None, wl: int = 5, regex: r
                 line.replace_with(words)
         print(soup.text.count(phrase))
     return soup
-
